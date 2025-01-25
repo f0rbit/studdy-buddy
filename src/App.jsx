@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react'
-import './App.css'
 import Dashboard from './pages/dashboard'
 import Notes from './pages/notes'
 
