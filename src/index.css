@@ -117,6 +117,10 @@ button:focus-visible {
   --baseTextContrast: white;
 }
 
+._selectTrigger_uazmk_307 {
+	background-color: transparent !important;
+}
+
 /* Sidebar.css */
 .sidebar {
   width: 210px;
