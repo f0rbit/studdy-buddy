@@ -14,6 +14,31 @@ const default_courses = [
     title: 'Comp Sci 1002',
     last_updated: '2025-01-25 14:00:00',
   },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
 ];
 
 const default_notes = [
