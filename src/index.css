@@ -24,11 +24,11 @@ html * {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ffffff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #696969;
 }
 
 html * {
@@ -48,7 +48,7 @@ body {
   flex-direction: column;
   min-width: 100vw; /* Full viewport width */
   min-height: 100vh; /* Full viewport height */
-  background-color: #242424; /* Background color for contrast */
+  background-color: black; /* Background color for contrast */
 }
 
 h1 {
@@ -123,10 +123,10 @@ button:focus-visible {
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: #898989;
+  background-color: #242424;
   padding: 20px;
   z-index: 1;
-  border-right: 1px solid #898989;
+  border-right: 1px solid #242424;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -197,9 +197,9 @@ button:focus-visible {
   padding: 8px;
   border: 1px solid black;
   border-radius: 4px;
-  background: #898989;
+  background: #242424;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #919191;
 }
 
 .note-title {
@@ -237,10 +237,10 @@ button:focus-visible {
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: #898989;
+  background-color: #121212;
   padding: 20px;
   z-index: 1;
-  border-right: 1px solid #898989;
+  border-right: 1px solid #121212;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -263,7 +263,7 @@ button:focus-visible {
 }
 
 .sidebar__title {
-  color: #4a4a4a;
+  color: #ffffff;
   font-size: 1.1em;
   font-weight: 500;
 }
@@ -283,7 +283,7 @@ button:focus-visible {
   width: 160px;
   padding: 4px 8px;
   margin-right: 8px;
-  color: #4a4a4a;
+  color: #ffffff;
   font-size: 14px;
   font-family: inherit;
   border: none;
@@ -296,6 +296,7 @@ button:focus-visible {
   width: 160px;
   padding: 4px 8px;
   margin-right: 8px;
+  color: #222222;
   font-size: 14px;
   font-family: inherit;
   border-radius: 4px;
@@ -311,7 +312,7 @@ button:focus-visible {
   border: none;
   background: none;
   cursor: pointer;
-  color: #cacaca;
+  color: #ffffff;
 }
 
 .sidebar__edit-button {
@@ -323,9 +324,9 @@ button:focus-visible {
   padding: 8px;
   border: 1px solid black;
   border-radius: 4px;
-  background: #898989;
+  background: #ffffff;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #ffffff;
 }
 
 /* Dashboard Container */
@@ -385,16 +386,17 @@ button:focus-visible {
   width: 100%; /* Full width of the column */
   min-height: 300px; /* Ensures cards have a minimum height */
   padding: 20px; /* Adjust padding for content */
-  border: 1px solid #ccc;
+  border: 1px solid #111111;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   background-color: #f9f9f9;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
+  background-color: #121212;
 }
 
 .course-card:hover {
-  background-color: #ececec;
+  background-color: #3c3c3c;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-4px);
 }
@@ -559,11 +561,12 @@ button:focus-visible {
  }
 
  .sidebar__add-button {
-  border: 1px solid white;
-  background-color: #aaaaaa;
+  border: 1px solid rgb(30, 30, 30);
+  background-color: #1f1f1f;
   width: 210px;
   white-space: nowrap;
   outline: none;
+  color: #ababab
 }
 
 .sidebar {
