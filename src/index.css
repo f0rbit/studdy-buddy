@@ -422,3 +422,74 @@ button:focus-visible {
   color: #666;
   margin-top: 8px;
 }
+
+.course-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.edit-button {
+  font-size: 0.8em;
+  padding: 4px 8px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Smaller delete button in the bottom-right corner */
+.delete-button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 0.8em;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Input field when editing the title */
+.edit-course-input {
+  font-size: 1.2em;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add-course-button {
+  width: 100%; /* Take up full width of a grid column */
+  min-height: 300px; /* Matches the minimum height of a course card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.add-course-button:hover {
+  background-color: #45a049;
+}
+
+.course-grid .add-course-button {
+  grid-column: span 3; /* Make sure it spans full width */
+}
