@@ -12,7 +12,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+html h1 {
+  font-size: unset;
+  line-height: unset;
+  margin: unset;
+  padding: unset;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -24,10 +29,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -64,5 +65,24 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+.note-title {
+  font-size: 2rem;
+  width: 85%;
+
+  h1 {
+    font-weight: normal;
+    margin-left: 3.5px;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 5px;
+    outline: none;
+    font-size: 2rem;
+    background-color: transparent;
   }
 }
