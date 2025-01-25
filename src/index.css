@@ -146,6 +146,7 @@ button:focus-visible {
   padding: 8px;
   display: flex;
   align-items: center;
+  color: #888;
 }
 
 .sidebar__title {
@@ -393,6 +394,7 @@ button:focus-visible {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
   background-color: #121212;
+  position: relative;
 }
 
 .course-card:hover {
@@ -454,16 +456,12 @@ button:focus-visible {
   bottom: 8px;
   right: 8px;
   font-size: 0.8em;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
   cursor: pointer;
+  color: #888;
 }
 
 .delete-button:hover {
-  background-color: #d32f2f;
+	color: #ddd;
 }
 
 /* Input field when editing the title */
@@ -474,6 +472,7 @@ button:focus-visible {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  background: unset;
 }
 
 .add-course-button {
