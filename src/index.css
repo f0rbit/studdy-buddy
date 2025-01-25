@@ -119,7 +119,7 @@ button:focus-visible {
 
 /* Sidebar.css */
 .sidebar {
-  width: 250px;
+  width: 210px;
   height: 100vh;
   left: 0;
   top: 0;
@@ -421,4 +421,121 @@ button:focus-visible {
   font-size: 16px;
   color: #666;
   margin-top: 8px;
+}
+
+/* cams new sidebar 2:27pm */
+.sidebar .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar .links-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.sidebar .link-item {
+  margin-bottom: 8px;
+}
+
+.sidebar .link-button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  color: #4a4a4a;
+}
+
+.sidebar .link-button:hover {
+  background: #666;
+}
+
+.sidebar .footer {
+  padding: 16px;
+}
+
+.sidebar__link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.sidebar__link-button {
+  width: 250px; /* Adjust this value as needed */
+}
+
+.sidebar__link-item {
+  position: relative;
+  margin: 8px 0;
+ }
+ 
+ .sidebar__edit-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+ }
+
+ .sidebar__link-button {
+  width: calc(100% - 40px); /* Leaves space for edit button */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+ }
+
+ .sidebar__add-button {
+  border: 1px solid white;
+  background-color: #aaaaaa;
+  width: 210px;
+  white-space: nowrap;
+  outline: none;
+}
+
+.sidebar {
+  transition: width 0.3s ease;
+}
+
+.sidebar.expanded {
+  width: 210px;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+  padding: 20px 10px;
+}
+
+.sidebar__shrink-button,
+.sidebar__expand-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar__shrink-button:hover,
+.sidebar__expand-button:hover {
+  opacity: 1;
+}
+
+.sidebar__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar.collapsed .sidebar__title,
+.sidebar.collapsed .sidebar__links {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar__back-button {
+  padding: 4px;
 }
