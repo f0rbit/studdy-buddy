@@ -9,10 +9,12 @@ export function TextEditor({ note }) {
   const { updateNote, addNote, selected_course } = useContext(AppData);
   const [edit_title, setEditTitle] = useState(false);
   const [title_text, setTitleText] = useState(note?.title ?? "");
+  const [edit_text, setEditText] = useState(note?.text ?? "");
 
   useEffect(() => {
     setTitleText(note?.title ?? "");
     setEditTitle(false);
+	setEditText(note?.text ?? "");
   }, [note]);
 
   if (!note) {
@@ -32,7 +34,7 @@ export function TextEditor({ note }) {
     updateNote(note.id, { title: title_text });
   };
 
-  console.log(note.id);
+  console.log(edit_text);
 
   return (
     <div className="notes-editor">
@@ -60,8 +62,8 @@ export function TextEditor({ note }) {
 
       {/* Note Text */}
       <MDXEditor
-        markdown={note.text}
-        onChange={(value) => updateNote(note.id, { text: value })}
+        markdown={edit_text}
+        onChange={(value) => setEditText(value)}
         plugins={[
           headingsPlugin(),
           toolbarPlugin({
