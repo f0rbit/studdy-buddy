@@ -123,10 +123,10 @@ button:focus-visible {
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: #898989;
+  background-color: #242424;
   padding: 20px;
   z-index: 1;
-  border-right: 1px solid #898989;
+  border-right: 1px solid #242424;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -208,9 +208,9 @@ button:focus-visible {
   padding: 8px;
   border: 1px solid black;
   border-radius: 4px;
-  background: #898989;
+  background: #242424;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #919191;
 }
 
 .note-title {
@@ -248,10 +248,10 @@ button:focus-visible {
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: #898989;
+  background-color: #121212;
   padding: 20px;
   z-index: 1;
-  border-right: 1px solid #898989;
+  border-right: 1px solid #121212;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -274,7 +274,7 @@ button:focus-visible {
 }
 
 .sidebar__title {
-  color: #4a4a4a;
+  color: #ffffff;
   font-size: 1.1em;
   font-weight: 500;
 }
@@ -294,7 +294,7 @@ button:focus-visible {
   width: 160px;
   padding: 4px 8px;
   margin-right: 8px;
-  color: #4a4a4a;
+  color: #ffffff;
   font-size: 14px;
   font-family: inherit;
   border: none;
@@ -307,7 +307,7 @@ button:focus-visible {
   width: 160px;
   padding: 4px 8px;
   margin-right: 8px;
-  color: #4a4a4a;
+  color: #222222;
   font-size: 14px;
   font-family: inherit;
   border-radius: 4px;
@@ -321,7 +321,7 @@ button:focus-visible {
   border: none;
   background: none;
   cursor: pointer;
-  color: #666;
+  color: #ffffff;
 }
 
 .sidebar__edit-button {
@@ -333,9 +333,9 @@ button:focus-visible {
   padding: 8px;
   border: 1px solid black;
   border-radius: 4px;
-  background: #898989;
+  background: #ffffff;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #ffffff;
 }
 
 /* Dashboard Container */
@@ -487,11 +487,12 @@ button:focus-visible {
  }
 
  .sidebar__add-button {
-  border: 1px solid white;
-  background-color: #aaaaaa;
+  border: 1px solid rgb(30, 30, 30);
+  background-color: #1f1f1f;
   width: 210px;
   white-space: nowrap;
   outline: none;
+  color: #ababab
 }
 
 .sidebar {
