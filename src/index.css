@@ -101,3 +101,99 @@ button:focus-visible {
   --baseTextContrast: white;
 }
 
+/* Sidebar.css */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #898989;
+  padding: 20px;
+  z-index: 1;
+  border-right: 1px solid #898989;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sidebar__back-button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar__title {
+  color: #4a4a4a;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.sidebar__links {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar__link-item {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.sidebar__link-button {
+  width: 160px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar__link-input {
+  width: 160px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-family: inherit;
+  border-radius: 4px;
+  border-color: black;
+  background: #898989;
+}
+
+.sidebar__edit-button,
+.sidebar__delete-button {
+  padding: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.sidebar__edit-button {
+  margin-right: 4px;
+}
+
+.sidebar__add-button {
+  margin: 12px 0;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background: #898989;
+  cursor: pointer;
+  color: #4a4a4a;
+}
