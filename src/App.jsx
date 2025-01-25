@@ -98,7 +98,7 @@ function App() {
   };
 
   return (
-    <AppData.Provider value={{ courses, notes, page, selected_course, selected_note, setSelectedNote, setCourses, setNotes, setPage, setSelectedCourse, updateNote, addNote, addCourse, deleteCourse }}>
+    <AppData.Provider value={{ courses, notes, page, selected_course, selected_note, setSelectedNote, setCourses, setNotes, setPage, setSelectedCourse, updateNote, addNote, addCourse, deleteCourse, updateCourseTitle }}>
       {page === 'dashboard' ? <Dashboard /> : <Notes />}
     </AppData.Provider>
   );

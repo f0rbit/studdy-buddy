@@ -36,7 +36,11 @@ export default function CourseCard({ course }) {
 
   function handleEditToggle(event) {
     event.stopPropagation();
-    setIsEditing(prev => !prev);
+	if (isEditing) {
+		handleSave();
+	} else {
+		setIsEditing(true);
+	}
   }
 
   function handleTitleChange(event) {
@@ -60,6 +64,12 @@ export default function CourseCard({ course }) {
             type="text" 
             value={newTitle} 
             onChange={handleTitleChange} 
+			onBlur={handleSave}
+			onKeyDown={(e) => {
+				if (e.key === 'Enter') {
+					handleSave();
+				}
+			}}
             className="edit-course-input" 
             autoFocus
           />
