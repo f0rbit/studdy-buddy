@@ -3,12 +3,12 @@ import { AppData } from "../App";
 
 export default function CourseCard({ course }) {
   const { notes, setPage, setSelectedCourse, setSelectedNote, deleteCourse, updateCourseTitle } = useContext(AppData);
-
-  const course_notes = notes.filter(note => note.course_id === course.id);
-  const sorted_notes = course_notes.sort((a, b) => new Date(b.last_updated) - new Date(a.last_updated));
   
   const [isEditing, setIsEditing] = useState(false);  // Track whether we're editing the title
   const [newTitle, setNewTitle] = useState(course.title);  // Store the new title
+
+  const course_notes = notes.filter(note => note.course_id === course.id);
+  const sorted_notes = course_notes.sort((a, b) => new Date(b.last_updated) - new Date(a.last_updated));
 
   const openCourse = (e) => {
     e.stopPropagation();
@@ -25,6 +25,30 @@ export default function CourseCard({ course }) {
     setSelectedCourse(course.id)
     setSelectedNote(note_id);
   }
+
+  function handleDelete(event) {
+    event.stopPropagation();  // Prevent triggering the onClick handler for navigation
+    const confirmDelete = window.confirm(`Are you sure you want to delete ${course.title}?`);
+    if (confirmDelete) {
+      deleteCourse(course.id);  // Proceed with delete if confirmed
+    }
+  }
+
+  function handleEditToggle(event) {
+    event.stopPropagation();
+    setIsEditing(prev => !prev);
+  }
+
+  function handleTitleChange(event) {
+    setNewTitle(event.target.value);
+  }
+
+  function handleSave() {
+    updateCourseTitle(course.id, newTitle);
+    setIsEditing(false);
+  }
+
+  const recent_3 = sorted_notes.slice(0, 3);
 
 
 
