@@ -15,27 +15,27 @@ const default_courses = [
     last_updated: '2025-01-25 14:00:00',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Comp Sci 1002',
     last_updated: '2025-01-25 14:00:00',
   },
   {
-    id: 2,
+    id: 4,
     title: 'Comp Sci 1002',
     last_updated: '2025-01-25 14:00:00',
   },
   {
-    id: 2,
+    id: 5,
     title: 'Comp Sci 1002',
     last_updated: '2025-01-25 14:00:00',
   },
   {
-    id: 2,
+    id: 6,
     title: 'Comp Sci 1002',
     last_updated: '2025-01-25 14:00:00',
   },
   {
-    id: 2,
+    id: 7,
     title: 'Comp Sci 1002',
     last_updated: '2025-01-25 14:00:00',
   },
@@ -79,8 +79,21 @@ function App() {
     setNotes(updated_notes);
   };
 
+  const addNote = (course_id) => {
+    // get the highest note id and add one
+    const highest_note_id = notes.reduce((max, note) => Math.max(max, note.id), 0);
+    const new_note = {
+      id: highest_note_id + 1,
+      title: 'New Title',
+      last_updated: new Date().toISOString(),
+      course_id: course_id,
+      text: '',
+    };
+    setNotes([...notes, new_note]);
+  }
+
   return (
-    <AppData.Provider value={{ courses, notes, page, selected_course, selected_note, setSelectedNote, setCourses, setNotes, setPage, setSelectedCourse, updateNote }}>
+    <AppData.Provider value={{ courses, notes, page, selected_course, selected_note, setSelectedNote, setCourses, setNotes, setPage, setSelectedCourse, updateNote, addNote }}>
       {page === 'dashboard' ? <Dashboard /> : <Notes />}
     </AppData.Provider>
   );

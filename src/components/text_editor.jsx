@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AppData } from "../App";
 
 import { BlockTypeSelect, BoldItalicUnderlineToggles, CodeToggle, InsertTable, InsertThematicBreak, ListsToggle, MDXEditor } from '@mdxeditor/editor'
@@ -8,7 +8,12 @@ import '@mdxeditor/editor/style.css'
 export function TextEditor({ note }) {
   const { updateNote } = useContext(AppData);
   const [edit_title, setEditTitle] = useState(false);
-  const [title_text, setTitleText] = useState(note?.title || "");
+  const [title_text, setTitleText] = useState(note?.title ?? "");
+
+  useEffect(() => {
+    setTitleText(note?.title ?? "");
+    setEditTitle(false);
+  }, [note]);
 
   if (!note) {
     return <p>Select a note to edit</p>;
@@ -23,6 +28,7 @@ export function TextEditor({ note }) {
     updateNote(note.id, { title: title_text });
   };
 
+  console.log(note.id);
 
   return (
     <div className="notes-editor">
