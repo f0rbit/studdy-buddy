@@ -17,6 +17,15 @@ export default function CourseCard({ course }) {
     }
   }
 
+  const openNote = (e, note_id) => {
+    e.stopPropagation();
+    setPage('notes');
+    setSelectedCourse(course.id)
+    setSelectedNote(note_id);
+  }
+
+  const recent_3 = sorted_notes.slice(0, 3);
+
   return (
     <div className="course-card" onClick={openCourse}>
       <h1 className="course-title">
@@ -24,7 +33,14 @@ export default function CourseCard({ course }) {
           {course.title}
         </a>
       </h1>
-      <p className="course-updated">{course.last_updated}</p>
+      <div className="course-notes">
+        {recent_3.map((note) => (
+          <a role="button" onClick={(e) => openNote(e, note.id)} key={note.id}>
+            {note.title}
+          </a>
+        ))}
+      </div>
+
     </div>
   );
 }

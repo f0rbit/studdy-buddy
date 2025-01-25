@@ -411,3 +411,14 @@ button:focus-visible {
   color: #666;
   margin-top: 8px;
 }
+
+.course-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+
+  a {
+    cursor: pointer;
+  }
+}
