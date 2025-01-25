@@ -9,20 +9,13 @@ export default function Dashboard() {
   const { courses, notes } = useContext(AppData);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>Courses</p>
-      <ul>
+    <div className="dashboard-container">
+      <h1 className="dashboard-title">Studdy Buddy</h1>
+      <div className="course-grid">
         {courses.map((course) => (
-          <CourseCard course={course} />
+          <CourseCard key={course.id} course={course} />
         ))}
-      </ul>
-      <p>Notes</p>
-      <ul>
-        {notes.map((note) => (
-          <li key={note.id}>{note.title}</li>
-        ))}
-      </ul>
+      </div>
     </div>
   );
 }

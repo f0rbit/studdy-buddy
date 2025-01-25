@@ -1,26 +1,19 @@
 import { useContext } from "react";
 import { AppData } from "../App";
+import { TextEditor } from "../components/text_editor";
+
 import Sidebar from "../components/sidebar";
 
 export default function Notes() {
-  const { notes, selected_course } = useContext(AppData);
+  const { notes, selected_course, selected_note, setPage } = useContext(AppData);
+
   const using_notes = notes.filter((note) => note.course_id === selected_course);
+  const editing_note = using_notes.find((note) => note.id === selected_note) ?? null;
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: "flex", flexDirection: "row" }}>
       <Sidebar />
-      <main style={{ 
-        marginLeft: '250px', 
-        padding: '20px',
-        width: 'calc(100% - 250px)'
-      }}>
-        <h1>Notes</h1>
-        <ul>
-          {using_notes.map((note) => (
-            <li key={note.id}>{note.title}</li>
-          ))}
-        </ul>
-      </main>
+      <TextEditor note={editing_note} />
     </div>
   );
-}
+}   
