@@ -1,6 +1,4 @@
 import { createContext, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 // uni courses
@@ -35,7 +33,7 @@ const notes = [
 ];
 
 // create a context for courses and notes
-const AppData = createContext();
+export const AppData = createContext();
 
 
 function App() {
