@@ -296,12 +296,13 @@ button:focus-visible {
   width: 160px;
   padding: 4px 8px;
   margin-right: 8px;
-  color: #4a4a4a;
   font-size: 14px;
   font-family: inherit;
   border-radius: 4px;
-  border-color: black;
-  background: #898989;
+  border-color: white;
+  outline: none;
+  background: none;
+  border-style: solid;
 }
 
 .sidebar__edit-button,
@@ -310,7 +311,7 @@ button:focus-visible {
   border: none;
   background: none;
   cursor: pointer;
-  color: #666;
+  color: #cacaca;
 }
 
 .sidebar__edit-button {
