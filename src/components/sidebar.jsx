@@ -1,13 +1,14 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AppData } from '../App';
 
 const Sidebar = ({ notes }) => {
-  const { setPage, courses, selected_course, selected_note, addNote, setSelectedNote, updateNote } = useContext(AppData);
+  const { setPage, courses, selected_course, selected_note, addNote, setSelectedNote, updateNote, addNewLink } = useContext(AppData);
   const [isExpanded, setIsExpanded] = useState(true);
+  const [editingId, setEditingId ] = useState(null);
 
   const selectedCourse = courses.find(course => course.id === selected_course);
 
-    // TODO: this isn't used?
+  // TODO: this isn't used?
   const updateLink = (id, newTitle) => {
     updateNote(id, { title: newTitle });
   };
@@ -82,7 +83,7 @@ const Sidebar = ({ notes }) => {
 
       {isExpanded && (
         <div className="sidebar__links">
-          {links.map(link => (
+          {notes.map((link) => (
             <div key={link.id} className="sidebar__link-item">
               {editingId === link.id ? (
                 <input
