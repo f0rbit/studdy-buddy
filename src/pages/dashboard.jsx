@@ -1,11 +1,12 @@
 import { AppData } from "../App";
 import CourseCard from "../components/course_card";
+import { useContext } from "react";
 
 // dashboard page
 
 
 export default function Dashboard() {
-  const [courses, notes] = useContext(AppData);
+  const { courses, notes } = useContext(AppData);
 
   return (
     <div>

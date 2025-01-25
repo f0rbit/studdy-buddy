@@ -1,8 +1,10 @@
 import { createContext, useState } from 'react'
 import './App.css'
+import Dashboard from './pages/dashboard'
+import Notes from './pages/notes'
 
 // uni courses
-const courses = [
+const default_courses = [
   {
     id: 1,
     title: 'Maths 1002',
@@ -15,7 +17,7 @@ const courses = [
   },
 ];
 
-const notes = [
+const default_notes = [
   {
     id: 1,
     title: 'Maths 1002',
@@ -35,28 +37,15 @@ const notes = [
 // create a context for courses and notes
 export const AppData = createContext();
 
-
 function App() {
-  const [courses, setCourses] = useState(courses);
-  const [notes, setNotes] = useState(notes);
+  const [courses, setCourses] = useState(default_courses);
+  const [notes, setNotes] = useState(default_notes);
+  const [page, setPage] = useState('dashboard');
+  const [selected_course, setSelectedCourse] = useState(1);
 
   return (
-    <AppData.Provider value={{ courses, notes, setCourses, setNotes }}>
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.jsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+    <AppData.Provider value={{ courses, notes, page, selected_course, setCourses, setNotes, setPage, setSelectedCourse }}>
+      {page === 'dashboard' ? <Dashboard /> : <Notes />}
     </AppData.Provider>
   );
 }
