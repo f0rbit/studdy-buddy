@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html * {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -22,12 +26,20 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+body, html {
   margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure the body takes up full width */
+  height: 100%; /* Ensure the body takes up full height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+body {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  min-width: 100vw; /* Full viewport width */
+  min-height: 100vh; /* Full viewport height */
+  background-color: #242424; /* Background color for contrast */
 }
 
 h1 {
@@ -65,4 +77,89 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  width: 100%; /* Full-width container */
+  box-sizing: border-box;
+}
+
+.dashboard-title {
+  font-size: 2em; /* Larger title size */
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px; /* Space below title */
+  border-bottom: 3px solid #ccc; /* Horizontal line under the title */
+  margin-top: 0; /* Ensure it starts at the top */
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 0;
+  background-color: var(--background-color, #242424);
+  z-index: 10;
+  padding: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Course Grid */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 fixed columns */
+  gap: 24px; /* Space between cards */
+  width: 100%; /* Full-width grid */
+  justify-content: center; /* Center the grid when there's extra space */
+  box-sizing: border-box; /* Include padding in width calculation */
+  padding: 16px; /* Padding around the grid */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Full width of the column */
+  min-height: 300px; /* Ensures cards have a minimum height */
+  padding: 20px; /* Adjust padding for content */
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  background-color: #f9f9f9;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.course-card:hover {
+  background-color: #ececec;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+
+.course-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.course-updated {
+  font-size: 16px;
+  color: #666;
+  margin-top: 8px;
 }

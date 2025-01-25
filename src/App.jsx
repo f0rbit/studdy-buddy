@@ -1,5 +1,4 @@
 import { createContext, useState } from 'react'
-import './App.css'
 import Dashboard from './pages/dashboard'
 import Notes from './pages/notes'
 
@@ -9,6 +8,31 @@ const default_courses = [
     id: 1,
     title: 'Maths 1002',
     last_updated: '2025-01-25 12:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
+  },
+  {
+    id: 2,
+    title: 'Comp Sci 1002',
+    last_updated: '2025-01-25 14:00:00',
   },
   {
     id: 2,
