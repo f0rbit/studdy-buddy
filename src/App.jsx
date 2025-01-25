@@ -16,28 +16,13 @@ const default_courses = [
   },
   {
     id: 3,
-    title: 'Comp Sci 1002',
-    last_updated: '2025-01-25 14:00:00',
+    title: 'Physics 1002',
+    last_updated: '2025-01-25 16:00:00',
   },
   {
     id: 4,
-    title: 'Comp Sci 1002',
-    last_updated: '2025-01-25 14:00:00',
-  },
-  {
-    id: 5,
-    title: 'Comp Sci 1002',
-    last_updated: '2025-01-25 14:00:00',
-  },
-  {
-    id: 6,
-    title: 'Comp Sci 1002',
-    last_updated: '2025-01-25 14:00:00',
-  },
-  {
-    id: 7,
-    title: 'Comp Sci 1002',
-    last_updated: '2025-01-25 14:00:00',
+    title: 'Physics 2202',
+    last_updated: '2025-01-25 18:00:00',
   },
 ];
 
@@ -93,8 +78,27 @@ function App() {
     setSelectedNote(new_note.id);
   }
 
+  const addCourse = (newCourse) => {
+    setCourses([...courses, newCourse]);
+  };
+
+  const deleteCourse = (id) => {
+    setCourses(courses.filter(course => course.id !== id));
+  };
+
+  const updateCourseTitle = (id, newTitle) => {
+    const updatedCourses = courses.map((course) => {
+      if (course.id === id) {
+        return { ...course, title: newTitle };
+      } else {
+        return course;
+      }
+    });
+    setCourses(updatedCourses);
+  };
+
   return (
-    <AppData.Provider value={{ courses, notes, page, selected_course, selected_note, setSelectedNote, setCourses, setNotes, setPage, setSelectedCourse, updateNote, addNote }}>
+    <AppData.Provider value={{ courses, notes, page, selected_course, selected_note, setSelectedNote, setCourses, setNotes, setPage, setSelectedCourse, updateNote, addNote, addCourse, deleteCourse }}>
       {page === 'dashboard' ? <Dashboard /> : <Notes />}
     </AppData.Provider>
   );
