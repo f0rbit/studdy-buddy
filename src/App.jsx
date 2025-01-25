@@ -90,6 +90,7 @@ function App() {
       text: '',
     };
     setNotes([...notes, new_note]);
+    setSelectedNote(new_note.id);
   }
 
   return (

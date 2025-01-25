@@ -6,7 +6,7 @@ import { headingsPlugin, toolbarPlugin, linkPlugin, tablePlugin, thematicBreakPl
 import '@mdxeditor/editor/style.css'
 
 export function TextEditor({ note }) {
-  const { updateNote } = useContext(AppData);
+  const { updateNote, addNote, selected_course } = useContext(AppData);
   const [edit_title, setEditTitle] = useState(false);
   const [title_text, setTitleText] = useState(note?.title ?? "");
 
@@ -16,7 +16,11 @@ export function TextEditor({ note }) {
   }, [note]);
 
   if (!note) {
-    return <p>Select a note to edit</p>;
+    return <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%" }}>
+      <p>This course has no notes yet</p>
+      <button className="sidebar__add-button" onClick={() => addNote(selected_course)}>+ Add Note</button>
+
+    </div>
   }
 
   const handleTitleChange = (e) => {
