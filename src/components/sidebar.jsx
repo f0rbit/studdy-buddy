@@ -1,52 +1,17 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { AppData } from '../App';
 
-const Sidebar = () => {
-  const { setPage, courses, selected_course } = useContext(AppData);
-  const [links, setLinks] = useState([]);
-  const [editingId, setEditingId] = useState(null);
+const Sidebar = ({ notes }) => {
+  const { setPage, courses, selected_course, selected_note, addNote, setSelectedNote, updateNote } = useContext(AppData);
   const [isExpanded, setIsExpanded] = useState(true);
-
-  useEffect(() => {
-    try {
-      const savedLinks = localStorage.getItem('sidebarLinks');
-      if (savedLinks) {
-        setLinks(JSON.parse(savedLinks));
-      }
-    } catch (error) {
-      console.error('Error loading sidebar links:', error);
-    }
-  }, []);
+  const [editingId, setEditingId ] = useState(null);
 
   const selectedCourse = courses.find(course => course.id === selected_course);
 
-  const updateLocalStorage = (updatedLinks) => {
-    try {
-      localStorage.setItem('sidebarLinks', JSON.stringify(updatedLinks));
-    } catch (error) {
-      console.error('Error saving sidebar links:', error);
-    }
-  };
-
-  const addNewLink = () => {
-    const newLink = {
-      id: Date.now(),
-      title: 'New Link',
-      noteId: -1
-    };
-    const updatedLinks = [...links, newLink];
-    setLinks(updatedLinks);
-    updateLocalStorage(updatedLinks);
-  };
-
+  // TODO: this isn't used?
   const updateLink = (id, newTitle) => {
-    if (!newTitle.trim()) return;
-    const updatedLinks = links.map(link => 
-      link.id === id ? { ...link, title: newTitle.trim() } : link
-    );
-    setLinks(updatedLinks);
-    updateLocalStorage(updatedLinks);
-    setEditingId(null);
+    updateNote(id, { title: newTitle });
+	setEditingId(null);
   };
 
   return (
@@ -119,7 +84,7 @@ const Sidebar = () => {
 
       {isExpanded && (
         <div className="sidebar__links">
-          {links.map(link => (
+          {notes.map((link) => (
             <div key={link.id} className="sidebar__link-item">
               {editingId === link.id ? (
                 <input
@@ -135,17 +100,14 @@ const Sidebar = () => {
                 />
               ) : (
                 <>
-                  <button
-                    onClick={() => setPage('notes')}
-                    className="sidebar__link-button"
+                  <a role="button"
+                    onClick={() => setSelectedNote(link.id)}
+					className={selected_note === link.id ? 'selected sidebar__link-button' : ' sidebar__link-button'}
                   >
                     {link.title}
-                  </button>
-                  <button
-                    onClick={() => setEditingId(link.id)}
-                    className="sidebar__edit-button"
-                  >
-                    ✎
+                  </a>
+                  <button onClick={() => setEditingId(link.id)} className="sidebar__edit-button">
+                    <Pencil />
                   </button>
                 </>
               )}
@@ -153,10 +115,10 @@ const Sidebar = () => {
           ))}
           <div className="sidebar__link-item">
             <button
-              onClick={addNewLink}
+              onClick={() => addNote(selected_course)}
               className="sidebar__link-button sidebar__add-button"
             >
-              Add Link
+              + Add Link
             </button>
           </div>
         </div>
@@ -166,3 +128,8 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+
+export function Pencil() {
+	return <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-pencil"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
+}

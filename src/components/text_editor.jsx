@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AppData } from "../App";
 
 import { BlockTypeSelect, BoldItalicUnderlineToggles, CodeToggle, InsertTable, InsertThematicBreak, ListsToggle, MDXEditor } from '@mdxeditor/editor'
@@ -6,12 +6,23 @@ import { headingsPlugin, toolbarPlugin, linkPlugin, tablePlugin, thematicBreakPl
 import '@mdxeditor/editor/style.css'
 
 export function TextEditor({ note }) {
-  const { updateNote } = useContext(AppData);
+  const { updateNote, addNote, selected_course } = useContext(AppData);
   const [edit_title, setEditTitle] = useState(false);
-  const [title_text, setTitleText] = useState(note?.title || "");
+  const [title_text, setTitleText] = useState(note?.title ?? "");
+  const [edit_text, setEditText] = useState(note?.text ?? "");
+
+  useEffect(() => {
+    setTitleText(note?.title ?? "");
+    setEditTitle(false);
+	setEditText(note?.text ?? "");
+  }, [note]);
 
   if (!note) {
-    return <p>Select a note to edit</p>;
+    return <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%" }}>
+      <p>This course has no notes yet</p>
+      <button className="sidebar__add-button" onClick={() => addNote(selected_course)}>+ Add Note</button>
+
+    </div>
   }
 
   const handleTitleChange = (e) => {
@@ -23,6 +34,7 @@ export function TextEditor({ note }) {
     updateNote(note.id, { title: title_text });
   };
 
+  console.log(edit_text);
 
   return (
     <div className="notes-editor">
@@ -50,8 +62,8 @@ export function TextEditor({ note }) {
 
       {/* Note Text */}
       <MDXEditor
-        markdown={note.text}
-        onChange={(value) => updateNote(note.id, { text: value })}
+        markdown={edit_text}
+        onChange={(value) => setEditText(value)}
         plugins={[
           headingsPlugin(),
           toolbarPlugin({

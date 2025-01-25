@@ -146,6 +146,7 @@ button:focus-visible {
   padding: 8px;
   display: flex;
   align-items: center;
+  color: #888;
 }
 
 .sidebar__title {
@@ -163,32 +164,21 @@ button:focus-visible {
   display: flex;
   align-items: center;
   margin: 8px 0;
+
+  a {
+    color: lightgray;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  a.selected {
+    text-decoration: underline;
+  }
 }
 
-.sidebar__link-button {
-  width: 160px;
-  padding: 4px 8px;
-  margin-right: 8px;
-  color: #4a4a4a;
-  font-size: 14px;
-  font-family: inherit;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-align: left;
-}
-
-.sidebar__link-input {
-  width: 160px;
-  padding: 4px 8px;
-  margin-right: 8px;
-  color: #4a4a4a;
-  font-size: 14px;
-  font-family: inherit;
-  border-radius: 4px;
-  border-color: black;
-  background: #898989;
-}
 
 .sidebar__edit-button,
 .sidebar__delete-button {
@@ -311,8 +301,10 @@ button:focus-visible {
   font-size: 14px;
   font-family: inherit;
   border-radius: 4px;
-  border-color: black;
-  background: #898989;
+  border-color: white;
+  outline: none;
+  background: none;
+  border-style: solid;
 }
 
 .sidebar__edit-button,
@@ -402,6 +394,7 @@ button:focus-visible {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
   background-color: #121212;
+  position: relative;
 }
 
 .course-card:hover {
@@ -422,6 +415,86 @@ button:focus-visible {
   font-size: 16px;
   color: #666;
   margin-top: 8px;
+}
+
+.course-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+
+  a {
+    cursor: pointer;
+  }
+}
+
+
+.course-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.edit-button {
+  font-size: 0.8em;
+  padding: 4px 8px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Smaller delete button in the bottom-right corner */
+.delete-button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 0.8em;
+  cursor: pointer;
+  color: #888;
+}
+
+.delete-button:hover {
+	color: #ddd;
+}
+
+/* Input field when editing the title */
+.edit-course-input {
+  font-size: 1.2em;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: unset;
+}
+
+.add-course-button {
+  width: 100%; /* Take up full width of a grid column */
+  min-height: 300px; /* Matches the minimum height of a course card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4caf50;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.add-course-button:hover {
+  background-color: #45a049;
+}
+
+.course-grid .add-course-button {
+  grid-column: span 3; /* Make sure it spans full width */
 }
 
 /* cams new sidebar 2:27pm */
