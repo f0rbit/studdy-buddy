@@ -24,11 +24,11 @@ html * {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #ffffff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #696969;
 }
 
 html * {
@@ -48,7 +48,7 @@ body {
   flex-direction: column;
   min-width: 100vw; /* Full viewport width */
   min-height: 100vh; /* Full viewport height */
-  background-color: #242424; /* Background color for contrast */
+  background-color: black; /* Background color for contrast */
 }
 
 h1 {
@@ -119,14 +119,14 @@ button:focus-visible {
 
 /* Sidebar.css */
 .sidebar {
-  width: 250px;
+  width: 210px;
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: #898989;
+  background-color: #242424;
   padding: 20px;
   z-index: 1;
-  border-right: 1px solid #898989;
+  border-right: 1px solid #242424;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -146,6 +146,7 @@ button:focus-visible {
   padding: 8px;
   display: flex;
   align-items: center;
+  color: #888;
 }
 
 .sidebar__title {
@@ -163,32 +164,21 @@ button:focus-visible {
   display: flex;
   align-items: center;
   margin: 8px 0;
+
+  a {
+    color: lightgray;
+    cursor: pointer;
+  }
+
+  a:hover {
+    color: white;
+  }
+
+  a.selected {
+    text-decoration: underline;
+  }
 }
 
-.sidebar__link-button {
-  width: 160px;
-  padding: 4px 8px;
-  margin-right: 8px;
-  color: #4a4a4a;
-  font-size: 14px;
-  font-family: inherit;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-align: left;
-}
-
-.sidebar__link-input {
-  width: 160px;
-  padding: 4px 8px;
-  margin-right: 8px;
-  color: #4a4a4a;
-  font-size: 14px;
-  font-family: inherit;
-  border-radius: 4px;
-  border-color: black;
-  background: #898989;
-}
 
 .sidebar__edit-button,
 .sidebar__delete-button {
@@ -208,9 +198,9 @@ button:focus-visible {
   padding: 8px;
   border: 1px solid black;
   border-radius: 4px;
-  background: #898989;
+  background: #242424;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #919191;
 }
 
 .note-title {
@@ -248,10 +238,10 @@ button:focus-visible {
   height: 100vh;
   left: 0;
   top: 0;
-  background-color: #898989;
+  background-color: #121212;
   padding: 20px;
   z-index: 1;
-  border-right: 1px solid #898989;
+  border-right: 1px solid #121212;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -274,7 +264,7 @@ button:focus-visible {
 }
 
 .sidebar__title {
-  color: #4a4a4a;
+  color: #ffffff;
   font-size: 1.1em;
   font-weight: 500;
 }
@@ -294,7 +284,7 @@ button:focus-visible {
   width: 160px;
   padding: 4px 8px;
   margin-right: 8px;
-  color: #4a4a4a;
+  color: #ffffff;
   font-size: 14px;
   font-family: inherit;
   border: none;
@@ -307,12 +297,14 @@ button:focus-visible {
   width: 160px;
   padding: 4px 8px;
   margin-right: 8px;
-  color: #4a4a4a;
+  color: #222222;
   font-size: 14px;
   font-family: inherit;
   border-radius: 4px;
-  border-color: black;
-  background: #898989;
+  border-color: white;
+  outline: none;
+  background: none;
+  border-style: solid;
 }
 
 .sidebar__edit-button,
@@ -321,7 +313,7 @@ button:focus-visible {
   border: none;
   background: none;
   cursor: pointer;
-  color: #666;
+  color: #ffffff;
 }
 
 .sidebar__edit-button {
@@ -333,9 +325,9 @@ button:focus-visible {
   padding: 8px;
   border: 1px solid black;
   border-radius: 4px;
-  background: #898989;
+  background: #ffffff;
   cursor: pointer;
-  color: #4a4a4a;
+  color: #ffffff;
 }
 
 /* Dashboard Container */
@@ -395,16 +387,18 @@ button:focus-visible {
   width: 100%; /* Full width of the column */
   min-height: 300px; /* Ensures cards have a minimum height */
   padding: 20px; /* Adjust padding for content */
-  border: 1px solid #ccc;
+  border: 1px solid #111111;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   background-color: #f9f9f9;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   cursor: pointer;
+  background-color: #121212;
+  position: relative;
 }
 
 .course-card:hover {
-  background-color: #ececec;
+  background-color: #3c3c3c;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-4px);
 }
@@ -422,6 +416,18 @@ button:focus-visible {
   color: #666;
   margin-top: 8px;
 }
+
+.course-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+
+  a {
+    cursor: pointer;
+  }
+}
+
 
 .course-card-header {
   display: flex;
@@ -450,16 +456,12 @@ button:focus-visible {
   bottom: 8px;
   right: 8px;
   font-size: 0.8em;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 4px 8px;
   cursor: pointer;
+  color: #888;
 }
 
 .delete-button:hover {
-  background-color: #d32f2f;
+	color: #ddd;
 }
 
 /* Input field when editing the title */
@@ -470,6 +472,7 @@ button:focus-visible {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  background: unset;
 }
 
 .add-course-button {
@@ -492,4 +495,122 @@ button:focus-visible {
 
 .course-grid .add-course-button {
   grid-column: span 3; /* Make sure it spans full width */
+}
+
+/* cams new sidebar 2:27pm */
+.sidebar .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar .links-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.sidebar .link-item {
+  margin-bottom: 8px;
+}
+
+.sidebar .link-button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  color: #4a4a4a;
+}
+
+.sidebar .link-button:hover {
+  background: #666;
+}
+
+.sidebar .footer {
+  padding: 16px;
+}
+
+.sidebar__link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.sidebar__link-button {
+  width: 250px; /* Adjust this value as needed */
+}
+
+.sidebar__link-item {
+  position: relative;
+  margin: 8px 0;
+ }
+ 
+ .sidebar__edit-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+ }
+
+ .sidebar__link-button {
+  width: calc(100% - 40px); /* Leaves space for edit button */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+ }
+
+ .sidebar__add-button {
+  border: 1px solid rgb(30, 30, 30);
+  background-color: #1f1f1f;
+  width: 210px;
+  white-space: nowrap;
+  outline: none;
+  color: #ababab
+}
+
+.sidebar {
+  transition: width 0.3s ease;
+}
+
+.sidebar.expanded {
+  width: 210px;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+  padding: 20px 10px;
+}
+
+.sidebar__shrink-button,
+.sidebar__expand-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar__shrink-button:hover,
+.sidebar__expand-button:hover {
+  opacity: 1;
+}
+
+.sidebar__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar.collapsed .sidebar__title,
+.sidebar.collapsed .sidebar__links {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar__back-button {
+  padding: 4px;
 }

@@ -64,6 +64,20 @@ function App() {
     setNotes(updated_notes);
   };
 
+  const addNote = (course_id) => {
+    // get the highest note id and add one
+    const highest_note_id = notes.reduce((max, note) => Math.max(max, note.id), 0);
+    const new_note = {
+      id: highest_note_id + 1,
+      title: 'New Title',
+      last_updated: new Date().toISOString(),
+      course_id: course_id,
+      text: '',
+    };
+    setNotes([...notes, new_note]);
+    setSelectedNote(new_note.id);
+  }
+
   const addCourse = (newCourse) => {
     setCourses([...courses, newCourse]);
   };
@@ -84,7 +98,7 @@ function App() {
   };
 
   return (
-    <AppData.Provider value={{ courses, notes, page, selected_course, selected_note, setSelectedNote, setCourses, setNotes, setPage, setSelectedCourse, updateNote, addCourse, deleteCourse }}>
+    <AppData.Provider value={{ courses, notes, page, selected_course, selected_note, setSelectedNote, setCourses, setNotes, setPage, setSelectedCourse, updateNote, addNote, addCourse, deleteCourse, updateCourseTitle }}>
       {page === 'dashboard' ? <Dashboard /> : <Notes />}
     </AppData.Provider>
   );
