@@ -1,5 +1,11 @@
 import { useContext, useState } from "react";
 import { AppData } from "../App";
+
+import { BlockTypeSelect, BoldItalicUnderlineToggles, CodeToggle, InsertTable, InsertThematicBreak, ListsToggle, MDXEditor } from '@mdxeditor/editor'
+import { headingsPlugin, toolbarPlugin, linkPlugin, linkDialogPlugin, imagePlugin, tablePlugin, thematicBreakPlugin, listsPlugin, quotePlugin } from '@mdxeditor/editor'
+import '@mdxeditor/editor/style.css'
+
+
 // notes page
 
 export default function Notes() {
@@ -32,14 +38,12 @@ function Editor({ note }) {
 
   const handleTitleSave = () => {
     setEditTitle(false);
-    // Save logic here (e.g., updating the context or sending data to the server)
-    console.log("Title saved:", title_text);
     updateNote(note.id, { title: title_text });
   };
 
+
   return (
-    <div>
-      {/* Editable Title */}
+    <div className="notes-editor">
       <div className="note-title">
         {edit_title ? (
           <input
@@ -55,9 +59,7 @@ function Editor({ note }) {
             autoFocus
           />
         ) : (
-          <h1
-            style={{ cursor: "pointer" }}
-            onClick={() => setEditTitle(true)}
+          <h1 style={{ cursor: "pointer" }} onClick={() => setEditTitle(true)}
           >
             {title_text}
           </h1>
@@ -65,7 +67,32 @@ function Editor({ note }) {
       </div>
 
       {/* Note Text */}
-      <p>{note.text}</p>
+      <MDXEditor
+        markdown={note.text}
+        onChange={(value) => updateNote(note.id, { text: value })}
+        plugins={[
+          headingsPlugin(),
+          toolbarPlugin({
+            toolbarContents: () =>
+              <>
+                <BlockTypeSelect />
+                <BoldItalicUnderlineToggles />
+                <InsertThematicBreak />
+                {" "}
+                <CodeToggle />
+                <InsertTable />
+                <ListsToggle />
+              </>
+          }),
+          listsPlugin(),
+          quotePlugin(),
+          headingsPlugin(),
+          linkPlugin(),
+          tablePlugin(),
+          thematicBreakPlugin(),
+        ]}
+        className="dark-theme"
+      />
     </div>
   );
 }

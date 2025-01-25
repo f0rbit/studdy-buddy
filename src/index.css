@@ -27,6 +27,10 @@ a:hover {
   color: #535bf2;
 }
 
+html * {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
@@ -86,3 +90,14 @@ button:focus-visible {
     background-color: transparent;
   }
 }
+.notes-editor {
+  padding: 15px;
+
+}
+
+.markdown-editor {
+  color: white;
+  --baseText: white;
+  --baseTextContrast: white;
+}
+
